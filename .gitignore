@@ -1,0 +1,22 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+graphify-out/
+
+# Secrets: keep every env file out of git except the empty template
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local run data (SQLite runs, share links, cache)
+data/
+*.db
+*.db-shm
+*.db-wal
+
+# Local tooling / OS
+.claude/settings.local.json
+.DS_Store
