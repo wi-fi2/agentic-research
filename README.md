@@ -15,8 +15,15 @@ all on free LLM tiers plus a local decision model.
 ![Docker](https://img.shields.io/badge/Docker-one_container-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Cost](https://img.shields.io/badge/LLM_spend-%240.00%2Frun-2ea44f?style=for-the-badge)
 ![Local AI](https://img.shields.io/badge/Laya-runs_locally-8A2BE2?style=for-the-badge)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
 **[Quick start](#-quick-start)** · **[How it works](#-how-it-works)** · **[Features](#-features)** · **[Benchmarks](#-measured-not-guessed)** · **[Deploy](#-deploy-for-free)**
+
+<br>
+
+<img src="docs/report.png" alt="A finished research report: claim-status badges, quote-backed citation chips, and the run panel showing 108 s, 40 pages read, 12/15 quotes found and $0.0000 total cost" width="100%">
+
+<sub>A real standard-depth run, "DuckDB vs Polars": 40 pages read, 12 of 15 quotes found in their sources, 1 refuted claim removed, <b>$0.0000</b>.</sub>
 
 </div>
 
@@ -68,6 +75,10 @@ Sufficiency, thresholds and aggregation are plain Python.
 ---
 
 ## ✨ Features
+
+<p align="center">
+  <img src="docs/home.png" alt="The composer: question box, Quick/Standard/Deep depth, and the Writer and Helper model pickers" width="85%">
+</p>
 
 <table>
 <tr>
@@ -253,6 +264,12 @@ cli.py · tests/ · Dockerfile · PLAN.md (design + measurements)
 - [ ] Faster relevance ranking (small cross-encoder) and streaming search → fetch
 - [ ] Quote-window evidence for the LLM fact-checker
 - [ ] More keyless sources: arXiv, Semantic Scholar, Crossref, PubMed
+
+---
+
+## 📄 License
+
+[MIT](LICENSE). Use it, fork it, ship it.
 
 ---
 
