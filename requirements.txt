@@ -8,4 +8,5 @@ ddgs>=9.0
 python-docx>=1.1
 fpdf2>=2.8
 markdown>=3.6
+mcp>=1.12,<2  # MCP server (mcp_server.py)
 laya>=0.3.21  # local System 1 decision model (pulls torch + transformers)

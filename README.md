@@ -231,8 +231,35 @@ The Docker image uses CPU-only torch and **bakes in the Laya weights**. No brows
 | **Railway / Fly / Cloud Run** | ≥ 2.5 GB RAM for Laya, `$PORT` honoured |
 | Render free (512 MB) | too small with Laya. Set `LAYA_ENABLED=false` to run BM25 + LLM-only |
 
+### Google Cloud Run
+
+```bash
+PROJECT_ID=my-project SECRETS="GROQ_API_KEY=groq-key:latest,ACCESS_TOKEN=access-token:latest" ./deploy/cloudrun.sh
+```
+
+[`deploy/cloudrun.sh`](deploy/cloudrun.sh) builds the image with Cloud Build into Artifact Registry and deploys it with 4 GiB RAM (scale to zero).
+Keys come from Secret Manager. The same script runs from the manual **Deploy to Cloud Run** GitHub Actions workflow using Workload Identity Federation. Note that the SQLite store is ephemeral on Cloud Run, so share links reset on cold start.
+
 On a public instance set `ACCESS_TOKEN` and keep `RUNS_PER_HOUR_PER_IP` low so nobody else can use up your free quotas.
 Shared `/r/{slug}` links stay public and read-only. Mount a volume at `DB_PATH` if share links must survive restarts.
+
+---
+
+## 🔌 MCP server
+
+The agent is also an [MCP](https://modelcontextprotocol.io) server, so Claude Desktop, Claude Code or Cursor can call it as a tool.
+
+| Tool | What it does |
+|---|---|
+| `research(question, depth)` | runs the full pipeline, returns the cited, fact-checked Markdown brief |
+| `list_runs(limit)` | recent runs from the shared SQLite store |
+| `get_report(run_id)` | fetches a finished brief |
+
+```bash
+claude mcp add agentic-research -- /path/to/.venv/bin/python /path/to/mcp_server.py
+```
+
+For Claude Desktop add the same command and args under `mcpServers` in `claude_desktop_config.json`. Keys are read from `.env` as usual.
 
 ---
 
