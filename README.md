@@ -10,6 +10,7 @@ all on free LLM tiers plus a local decision model.
 
 <br>
 
+[![CI](https://github.com/wi-fi2/agentic-research/actions/workflows/ci.yml/badge.svg)](https://github.com/wi-fi2/agentic-research/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-SSE-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-one_container-2496ED?style=for-the-badge&logo=docker&logoColor=white)
